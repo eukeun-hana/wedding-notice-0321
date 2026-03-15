@@ -24,11 +24,11 @@ function App() {
           {/* 표지 */}
           <Cover />
           {/* 모시는 글 */}
-          <Invitation />
+          {/* <Invitation />*/}
         </LazyDiv>
         <LazyDiv className="card-group">
           {/* 오시는길 */}
-          <Location />
+          {/* <Location />*/}
         </LazyDiv>
 
         <LazyDiv className="card-group">
