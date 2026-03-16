@@ -140,85 +140,86 @@ export const Invitation = () => {
         연락하기
       </Button>
       <div className="break" />
-      {/* =========================
-          ✅ 새로 추가된 마음 전하실 곳 버튼
-      ========================== */}
+      {/* 마음 전하실 곳 */}
       <Button
         onClick={() => {
           openModal({
             className: "contact-modal",
             closeOnClickBackground: true,
+
             header: (
               <div className="title-group">
                 <div className="title">마음 전하실 곳</div>
                 <div className="subtitle">
-                  계좌번호를 복사하여 마음을 전하실 수 있습니다.
+                  계좌를 누르면 복사됩니다.
                 </div>
               </div>
             ),
+
             content: (
               <>
-                {/* 신랑측 */}
-                <div className="contact-info">
-                  {GROOM_INFO.map(
-                    ({ relation, name, bank, account }) => (
-                      <Fragment key={relation}>
-                        <div className="relation">{relation}</div>
-
-                        {/* 이름 */}
-                        <div>{name}</div>
-
-                        {/* 계좌 + 복사 */}
-                        <div>
-                          <span>{bank} {account}</span>
-
-                          <Button
-                            buttonStyle="style2"
-                            style={{
-                              marginLeft: "0.5rem",
-                              fontSize: "0.7rem",
-                              padding: "0.2rem 0.4rem",
-                            }}
-                            onClick={() => copyAccount(account)}
-                          >
-                            복사
-                          </Button>
-                        </div>
-                      </Fragment>
-                    ),
-                  )}
+                <div style={{ marginBottom: "0.7rem", fontWeight: "bold" }}>
+                  신랑측
                 </div>
 
-                {/* 신부측 */}
-                <div className="contact-info">
-                  {BRIDE_INFO.map(
-                    ({ relation, name, bank, account }) => (
-                      <Fragment key={relation}>
-                        <div className="relation">{relation}</div>
+                {GROOM_INFO.map(({ name, bank, account }) => (
+                  <div
+                    key={name}
+                    onClick={() => copyAccount(account)}
+                    style={{
+                      padding: "0.7rem",
+                      borderBottom: "1px solid #eee",
+                      cursor: "pointer",
+                    }}
+                  >
+                    <div style={{ fontSize: "0.9rem" }}>{name}</div>
 
-                        <div>{name}</div>
+                    <div
+                      style={{
+                        fontSize: "0.8rem",
+                        opacity: 0.7,
+                      }}
+                    >
+                      {bank} {account}
+                    </div>
+                  </div>
+                ))}
 
-                        <div>
-                          <span>{bank} {account}</span>
-
-                          <Button
-                            buttonStyle="style2"
-                            style={{
-                              marginLeft: "0.5rem",
-                              fontSize: "0.7rem",
-                              padding: "0.2rem 0.4rem",
-                            }}
-                            onClick={() => copyAccount(account)}
-                          >
-                            복사
-                          </Button>
-                        </div>
-                      </Fragment>
-                    ),
-                  )}
+                <div
+                  style={{
+                    marginTop: "1rem",
+                    marginBottom: "0.7rem",
+                    fontWeight: "bold",
+                  }}
+                >
+                  신부측
                 </div>
+
+                {BRIDE_INFO.map(({ name, bank, account }) => (
+                  <div
+                    key={name}
+                    onClick={() => copyAccount(account)}
+                    style={{
+                      padding: "0.7rem",
+                      borderBottom: "1px solid #eee",
+                      cursor: "pointer",
+                    }}
+                  >
+                    <div style={{ fontSize: "0.9rem" }}>{name}</div>
+
+                    <div
+                      style={{
+                        fontSize: "0.8rem",
+                        opacity: 0.7,
+                      }}
+                    >
+                      {bank} {account}
+                    </div>
+                  </div>
+                ))}
               </>
             ),
+
             footer: (
               <Button
                 buttonStyle="style2"
