@@ -91,37 +91,29 @@ export const Invitation = () => {
                         {/* 이름 */}
                         <div>{name}</div>
 
-                        {/* 아이콘 + 계좌 */}
                         <div>
-                          {/* 전화 */}
-                          {phone && (
-                            <PhoneIcon
-                              className="flip icon"
-                              onClick={() => {
-                                window.open(`tel:${phone}`, "_self")
-                              }}
-                            />
-                          )}
-
-                          {/* 문자 */}
-                          {phone && (
-                            <EnvelopeIcon
-                              className="icon"
-                              onClick={() => {
-                                window.open(`sms:${phone}`, "_self")
-                              }}
-                            />
-                          )}
-
-                          {/* ✅ 추가: 계좌번호 (클릭하면 복사) */}
-                          {account && (
-                            <span
-                              onClick={() => copyAccount(account)}
-                              style={{ cursor: "pointer" }}
-                            >
-                              {bank} {account}
-                            </span>
-                          )}
+                          {/* 아이콘 줄 */}
+                          <PhoneIcon
+                            className="flip icon"
+                            onClick={() => {
+                              window.open(`tel:${phone}`, "_self")
+                            }}
+                          />
+                        
+                          <EnvelopeIcon
+                            className="icon"
+                            onClick={() => {
+                              window.open(`sms:${phone}`, "_self")
+                            }}
+                          />
+                        
+                          {/* 계좌 줄 */}
+                          <div
+                            onClick={() => copyAccount(account)}
+                            style={{ cursor: "pointer", fontSize: "0.8rem", opacity: 0.7 }}
+                          >
+                            {bank} {account}
+                          </div>
                         </div>
                       </Fragment>
                     ),
@@ -142,35 +134,29 @@ export const Invitation = () => {
                         <div className="relation">{relation}</div>
 
                         <div>{name}</div>
-
-                        <div>
-                          {phone && (
-                            <PhoneIcon
-                              className="flip icon"
-                              onClick={() => {
-                                window.open(`tel:${phone}`, "_self")
-                              }}
-                            />
-                          )}
-
-                          {phone && (
-                            <EnvelopeIcon
-                              className="icon"
-                              onClick={() => {
-                                window.open(`sms:${phone}`, "_self")
-                              }}
-                            />
-                          )}
-
-                          {/* ✅ 추가: 계좌번호 */}
-                          {account && (
-                            <span
-                              onClick={() => copyAccount(account)}
-                              style={{ cursor: "pointer" }}
-                            >
-                              {bank} {account}
-                            </span>
-                          )}
+                       <div>
+                          {/* 아이콘 줄 */}
+                          <PhoneIcon
+                            className="flip icon"
+                            onClick={() => {
+                              window.open(`tel:${phone}`, "_self")
+                            }}
+                          />
+                        
+                          <EnvelopeIcon
+                            className="icon"
+                            onClick={() => {
+                              window.open(`sms:${phone}`, "_self")
+                            }}
+                          />
+                        
+                          {/* 계좌 줄 */}
+                          <div
+                            onClick={() => copyAccount(account)}
+                            style={{ cursor: "pointer", fontSize: "0.8rem", opacity: 0.7 }}
+                          >
+                            {bank} {account}
+                          </div>
                         </div>
                       </Fragment>
                     ),
