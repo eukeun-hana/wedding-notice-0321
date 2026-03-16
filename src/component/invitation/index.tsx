@@ -39,62 +39,41 @@ export const Invitation = () => {
       ),
 
       content: (
-        <div className="account-list">
-
+        <>
           {/* ⭐ 신랑측 계좌 */}
-          <details className="account-item">
-            <summary>신랑측 계좌</summary>
-
-            {GROOM_INFO.filter(({ account }) => account).map(
-              ({ name, account }) => (
-                <div className="account-row" key={account}>
-                  <div className="account-text">{account}</div>
-
-                  <Button
-                    className="copy-button"
-                    onClick={() => copyAccount(account)}
-                  >
-                    복사
-                  </Button>
-                </div>
-              )
+          <div className="contact-info">
+            {GROOM_INFO.filter(({ account }) => !!account).map(
+              ({ relation, name, account }) => (
+                <Fragment key={relation}>
+                  <div className="relation">{relation}</div>
+                  <div>{name}</div>
+                  <div>
+                    <Button
+                      onClick={() => copyAccount(account)}
+                    >
+                      복사
+                    </Button>
+                  </div>
+                </Fragment>
+              ),
             )}
-          </details>
+          </div>
 
           {/* ⭐ 신부측 계좌 */}
-          <details className="account-item">
-            <summary>신부측 계좌</summary>
-
-            {BRIDE_INFO.filter(({ account }) => account).map(
-              ({ name, account }) => (
-                <div className="account-row" key={account}>
-                  <div className="account-text">{account}</div>
-
-                  <Button
-                    className="copy-button"
-                    onClick={() => copyAccount(account)}
-                  >
-                    복사
-                  </Button>
-                </div>
-              )
-            )}
-          </details>
-
-        </div>
-      ),
-
-      footer: (
-        <Button
-          buttonStyle="style2"
-          className="bg-light-grey-color text-dark-color"
-          onClick={closeModal}
-        >
-          닫기
-        </Button>
-      ),
-    })
-  }
+          <div className="contact-info">
+            {BRIDE_INFO.filter(({ account }) => !!account).map(
+              ({ relation, name, account }) => (
+                <Fragment key={relation}>
+                  <div className="relation">{relation}</div>
+                  <div>{name}</div>
+                  <div>
+                    <Button
+                      onClick={() => copyAccount(account)}
+                    >
+                      복사
+                    </Button>
+                  </div>
+                
   return (
     <LazyDiv className="card invitation">
       <h2 className="english">Notice</h2>
